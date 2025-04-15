@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const MovieDetailContainer = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     max-width: 1480px;
     margin: 0 auto;
@@ -31,7 +31,8 @@ export const Description = styled.p`
 export const DescriptionContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: left;
     gap: 64px;
 `
 
@@ -40,4 +41,5 @@ export const TrailerContainer = styled.div`
     justify-content: center;
     max-width: 1480px;
     margin: 0 auto;
+    margin-bottom: 64px;
 `

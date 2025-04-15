@@ -1,23 +1,23 @@
 import { useState } from "react";
-import { SearchInput } from "./SearchBar";
+import { SearchInput } from "./Search";
 
 const Search = ({ onSearch }) => {
-    const [query, setQuery] = useState("");
+  const [query, setQuery] = useState("");
 
-    const handleChange = (e) => {
-        const value = e.target.value;
-        setQuery(value);
-        onSearch(value);
-    };
+  const handleChange = (e) => {
+    const value = e.target.value;
+    setQuery(value);
+    onSearch(value);
+  };
 
-    return (
-        <SearchInput
-            type="text"
-            placeholder="Buscar Filme"
-            value={query}
-            onChange={handleChange}
-        />
-    );
+  return (
+    <SearchInput
+      type="text"
+      placeholder="Buscar Filme"
+      value={query}
+      onChange={handleChange}
+    />
+  );
 };
 
 export default Search;

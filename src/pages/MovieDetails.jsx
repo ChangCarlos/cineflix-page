@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getMovieDetails, getMovieTrailer } from "../services/movieService";
 import { Description, DescriptionContainer, MovieDetailContainer, PosterContainer, Title, TrailerContainer } from "./MovieDetailsStyle";
+import Header from "../components/Header";
 
 const MovieDetail = () => {
     const { id } = useParams();
@@ -33,21 +34,22 @@ const MovieDetail = () => {
 
     return (
         <>
-<MovieDetailContainer>
-            <PosterContainer>
-                <Title>{movie.title}</Title>
-            <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-            />
-            </PosterContainer>
-            <DescriptionContainer>
-            <Description><strong>Sinopse:</strong> {movie.overview}</Description>
-            <Description><strong>Nota:</strong> {movie.vote_average}</Description>
-            <Description><strong>Data de Lançamento:</strong> {movie.release_date}</Description>
-            </DescriptionContainer>
+        <Header />
+            <MovieDetailContainer>
+                <PosterContainer>
+                    <Title>{movie.title}</Title>
+                    <img
+                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                        alt={movie.title}
+                    />
+                </PosterContainer>
+                <DescriptionContainer>
+                    <Description><strong>Sinopse:</strong> {movie.overview ? movie.overview : 'Sem sinopse disponível.'}</Description>
+                    <Description><strong>Nota:</strong> {movie.vote_average}</Description>
+                    <Description><strong>Data de Lançamento:</strong> {movie.release_date}</Description>
+                </DescriptionContainer>
             </MovieDetailContainer>
-            {trailerKey && (
+            {trailerKey ? (
                 <TrailerContainer>
                     <iframe
                         width="1280"
@@ -58,8 +60,8 @@ const MovieDetail = () => {
                         allowFullScreen
                     />
                 </TrailerContainer>
-            )}
-</>
+            ) : <TrailerContainer><Description>Trailer indisponível.</Description></TrailerContainer>}
+        </>
     );
 };
 
