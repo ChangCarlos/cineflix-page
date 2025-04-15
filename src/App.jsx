@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import './App.css'
 import Header from './components/Header'
 import MovieList from './components/MovieList'
-import { getPopularMovies, searchMovies } from './components/services/movieService';
+import { getMoviesByGenre, getPopularMovies, searchMovies } from './components/services/movieService';
+import Categories from './components/CategoryFilter';
 
 const App = () => {
   const [movies, setMovies] = useState([]);
@@ -30,6 +31,20 @@ const App = () => {
     }
   };
 
+  const handleGenreSelect = async (genreId) => {
+    if (!genreId) {
+      fetchPopular();
+      return;
+    }
+  
+    try {
+      const data = await getMoviesByGenre(genreId);
+      setMovies(data);
+    } catch (err) {
+      console.error("Erro ao filtrar por gênero:", err);
+    }
+  };
+
   useEffect(() => {
     fetchPopular();
   }, []);
@@ -37,6 +52,7 @@ const App = () => {
   return (
     <>
       <Header onSearch={handleSearch} />
+      <Categories onSelectGenre={handleGenreSelect} />
       <MovieList movies={movies} />
     </>
   );

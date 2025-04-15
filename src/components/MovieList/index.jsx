@@ -8,7 +8,6 @@ import { getPopularMovies, searchMovies } from "../services/movieService";
 const MovieList = ({ movies }) => {
     return (
       <MovieListContainer>
-        <Categories />
         <Title>Lista de filmes</Title>
         <Movies>
           {movies.map((movie) => (
