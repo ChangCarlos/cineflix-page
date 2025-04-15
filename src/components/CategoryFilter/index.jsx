@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getGenres } from "../services/movieService";
+import { getGenres } from "../../services/movieService";
 import {
     FilterWrapper,
     GenreButton,

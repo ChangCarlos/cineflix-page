@@ -15,6 +15,7 @@ export const Logo = styled.h2`
     font-size: 24px;
     font-weight: 600;
     color: #FFFFFF;
+    cursor: pointer;
 `
 
 export const Favourites = styled.a`

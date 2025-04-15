@@ -1,23 +1,18 @@
-
-import { CardContainer, Description, DescriptionContainer, Title, Poster } from "./MovieCard"
-
+import { useNavigate } from "react-router-dom";
+import { CardContainer, Description, DescriptionContainer, Title, Poster } from "./MovieCard"; // seus styled
 
 const MovieCard = ({ movie }) => {
-    const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+    const navigate = useNavigate();
 
     return (
-        <CardContainer>
-            <Poster src={imageUrl} alt={movie.title} />
+        <CardContainer onClick={() => navigate(`/movie/${movie.id}`)}>
+            <Poster src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
             <DescriptionContainer>
-                <Title>
-                    {movie.title}
-                </Title>
-                <Description>
-                    {movie.overview ? movie.overview.slice(0, 120) + '...' : 'Sem descrição'}
-                </Description>
+                <Title>{movie.title}</Title>
+                <Description>{movie.overview.slice(0, 100)}...</Description>
             </DescriptionContainer>
         </CardContainer>
-    )
-}
+    );
+};
 
 export default MovieCard;

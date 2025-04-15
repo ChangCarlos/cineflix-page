@@ -7,6 +7,7 @@ export const CardContainer = styled.div`
     gap: 16px;
     border: 1px solid #2E2E2E;
     border-radius: 8px;
+    cursor: pointer;
 `
 
 export const Poster = styled.img`
