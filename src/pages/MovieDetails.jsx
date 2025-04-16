@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getMovieDetails, getMovieTrailer } from "../services/movieService";
-import { Description, DescriptionContainer, MovieDetailContainer, PosterContainer, Title, TrailerContainer } from "./MovieDetailsStyle";
+import { Description, DescriptionContainer, Container, PosterContainer, Title, TrailerContainer } from "./MovieDetailsStyle";
 import Header from "../components/Header";
 
 const MovieDetail = () => {
@@ -35,7 +35,7 @@ const MovieDetail = () => {
     return (
         <>
         <Header />
-            <MovieDetailContainer>
+            <Container>
                 <PosterContainer>
                     <Title>{movie.title}</Title>
                     <img
@@ -48,7 +48,7 @@ const MovieDetail = () => {
                     <Description><strong>Nota:</strong> {movie.vote_average}</Description>
                     <Description><strong>Data de Lançamento:</strong> {movie.release_date}</Description>
                 </DescriptionContainer>
-            </MovieDetailContainer>
+            </Container>
             {trailerKey ? (
                 <TrailerContainer>
                     <iframe

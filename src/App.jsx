@@ -1,7 +1,8 @@
 import { Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
+
 import Home from './pages/Home';
 import MovieDetail from './pages/MovieDetails';
+import Favorites from './pages/Favorites';
 
 const App = () => {
   return (
@@ -9,6 +10,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movie/:id" element={<MovieDetail />} />
+        <Route path='/favorites' element={<Favorites />} />
       </Routes>
     </>
   );
