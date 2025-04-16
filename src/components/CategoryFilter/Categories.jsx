@@ -8,6 +8,8 @@ export const FilterWrapper = styled.div`
 export const GenreScrollArea = styled.div`
   display: flex;
   gap: 10px;
+  max-width: 1480px;
+  margin: 0 auto;
   overflow-x: auto;
   scroll-behavior: smooth;
   padding-bottom: 5px;
