@@ -9,6 +9,11 @@ export const CardContainer = styled.div`
     border: 1px solid #2E2E2E;
     border-radius: 8px;
     cursor: pointer;
+
+    &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
 `
 
 export const Poster = styled.img`
